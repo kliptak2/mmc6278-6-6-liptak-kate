@@ -21,6 +21,14 @@ document.body.onclick = function(e){
     }
 }
 
+document.onkeyup = function(e){
+    if(e.code === "Escape"){
+        hamburgerBtn.setAttribute("aria-expanded", false)
+        hamburgerMenu.classList.remove("show-menu")
+        hamburgerBtn.focus()
+    }
+}
+
 
 // Tests To Pass
 // #Should not have menu open when page loads - auto passes √
