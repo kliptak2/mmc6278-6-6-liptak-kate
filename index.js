@@ -1,18 +1,27 @@
-var hamburgerMenu = document.getElementByClass ("hamburger-menu")
-var hamburgerBtn = document.getElementByClass ("hamburger-btn")
-var navContainer = document.getElementsByClassName ("menu")
+var hamburgerMenu = document.querySelector (".hamburger-menu")
+var hamburgerBtn = document.querySelector (".hamburger-btn")
+var navContainer = document.querySelector (".menu")
 
-hamburgerBtn.onclick = function(){
-    hamburgerMenu.classList.toggle("show-menu")
+navContainer.onclick = function(e){
+    e.stopPropagation()
+    if (e.target.tagName === "BUTTON"){                //if you clicked on a button, then...
+        hamburgerMenu.classList.toggle("show-menu")    // toggle swaps if a class is applied to an element
+        if (hamburgerBtn.getAttribute("aria-expanded") === "true"){
+            hamburgerBtn.setAttribute("aria-expanded", false)
+        } else {
+            hamburgerBtn.setAttribute("aria-expanded", true)
+        }
+    }
+
 }
 
 
 // Tests To Pass
 // #Should not have menu open when page loads - auto passes √
-// #Should open menu when clicking the hamburger button
-// #Should set aria-expanded="true" to hamburger button when menu is opened
+// #Should open menu when clicking the hamburger button √
+// #Should set aria-expanded="true" to hamburger button when menu is opened √
 // #Should close menu when clicking the hamburger button
-// #Should set aria-expanded="false" to hamburger button when menu is closed
+// #Should set aria-expanded="false" to hamburger button when menu is closed √
 // #Should NOT open menu when clicking things other than the hamburger button - auto passes √
 // #Should close menu when clicking outside of the menu
 // #Should NOT close menu when clicking inside of the menu - auto passes √
