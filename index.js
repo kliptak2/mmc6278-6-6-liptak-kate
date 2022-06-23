@@ -12,7 +12,13 @@ navContainer.onclick = function(e){
             hamburgerBtn.setAttribute("aria-expanded", true)
         }
     }
+}
 
+document.body.onclick = function(e){
+    if (hamburgerBtn.getAttribute("aria-expanded") === "true"){
+        hamburgerBtn.setAttribute("aria-expanded", false)
+        hamburgerMenu.classList.remove("show-menu")
+    }
 }
 
 
